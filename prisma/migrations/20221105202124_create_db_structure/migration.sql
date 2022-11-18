@@ -2,9 +2,9 @@
 CREATE TABLE "Participant" (
     "id" TEXT NOT NULL PRIMARY KEY,
     "userId" TEXT NOT NULL,
-    "poolId" TEXT NOT NULL,
+    "pollId" TEXT NOT NULL,
     CONSTRAINT "Participant_userId_fkey" FOREIGN KEY ("userId") REFERENCES "User" ("id") ON DELETE RESTRICT ON UPDATE CASCADE,
-    CONSTRAINT "Participant_poolId_fkey" FOREIGN KEY ("poolId") REFERENCES "Pool" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
+    CONSTRAINT "Participant_pollId_fkey" FOREIGN KEY ("pollId") REFERENCES "Pool" ("id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -54,7 +54,7 @@ PRAGMA foreign_key_check;
 PRAGMA foreign_keys=ON;
 
 -- CreateIndex
-CREATE UNIQUE INDEX "Participant_userId_poolId_key" ON "Participant"("userId", "poolId");
+CREATE UNIQUE INDEX "Participant_userId_pollId_key" ON "Participant"("userId", "pollId");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "User_emaik_key" ON "User"("emaik");
